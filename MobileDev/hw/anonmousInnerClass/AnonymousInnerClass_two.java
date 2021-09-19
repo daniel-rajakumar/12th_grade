@@ -1,8 +1,8 @@
 import java.awt.event.*;
 import javax.swing.*;
 
-public class AnonmousInnerClass_two extends JPanel {
-	public AnonmousInnerClass_two(){
+public class AnonymousInnerClass_two extends JPanel {
+	public AnonymousInnerClass_two(){
 		JFrame frame = new JFrame();
 		frame.setVisible(true);
 		frame.setSize(200, 200);
@@ -21,7 +21,7 @@ public class AnonmousInnerClass_two extends JPanel {
 	}
 
 	public static void main (String[] args){
-		AnonmousInnerClass_two demo = new AnonmousInnerClass_two();
+		AnonymousInnerClass_two demo = new AnonymousInnerClass_two();
 	 }
 
 }

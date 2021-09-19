@@ -1,8 +1,8 @@
 import java.awt.event.*;
 import javax.swing.*;
 
-public class AnonmousInnerClass_one extends JPanel {
-	public AnonmousInnerClass_one(){
+public class AnonymousInnerClass_one extends JPanel {
+	public AnonymousInnerClass_one(){
 		JFrame frame = new JFrame();
 		frame.setVisible(true);
 		frame.setSize(200, 200);
@@ -12,7 +12,7 @@ public class AnonmousInnerClass_one extends JPanel {
 	}
 
 	public static void main (String[] args){
-		AnonmousInnerClass_one demo = new AnonmousInnerClass_one();
+		AnonymousInnerClass_one demo = new AnonymousInnerClass_one();
 	 }
 
 	 public class MouseInterface implements MouseMotionListener {
