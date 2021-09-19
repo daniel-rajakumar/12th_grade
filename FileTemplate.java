@@ -14,7 +14,7 @@ public class FileTemplate {
 		// four("CensusApportionment.txt");
 		// five("Sets.txt");
 		// six("Diamond.txt");
-		seven("Cars.txt");
+		// seven("Cars.txt");
 	}
 
 	/***********************************************************************/
@@ -271,7 +271,7 @@ public class FileTemplate {
 			ArrayList<String> sets = new ArrayList<>();
 
 			while((text=input.readLine()) != null) {
-				sets.add(text + " ");
+				sets.add(" " + text + " ");
 			}
 
 			five_getIntersections(sets);
@@ -289,11 +289,11 @@ public class FileTemplate {
 		for (int line = 0; line < list.size(); line++){
 			if (line % 3 == 0){
 				intersection  = "";
-				firstLineOfASet = list.get(line).split(" ");
+				firstLineOfASet = list.get(line).trim().split(" ");
 
 				for (int i = 0; i < firstLineOfASet.length; i++){
-					boolean inLineTwo   = list.get(line + 1).contains(firstLineOfASet[i] + " "); 
-					boolean inLineThree = list.get(line + 2).contains(firstLineOfASet[i] + " "); 
+					boolean inLineTwo   = list.get(line + 1).contains(" " + firstLineOfASet[i] + " "); 
+					boolean inLineThree = list.get(line + 2).contains(" " + firstLineOfASet[i] + " "); 
 
 					if (inLineTwo && inLineThree)
 						intersection += firstLineOfASet[i] + " ";
@@ -384,56 +384,22 @@ public class FileTemplate {
 
 			input.readLine();
 			ArrayList<String> list = new ArrayList<>();
+
 			while((text=input.readLine()) != null) {
 				list.add(text);
 			}
 
-			seven_printCars(list);
-
+			seven_sortAndPrint(list, 1, "MPG");
+			seven_sortAndPrint(list, 2, "# Cylinders");
+			seven_sortAndPrint(list, 3, "Displacement");
+			seven_sortAndPrint(list, 4, "Horsepower");
+			seven_sortAndPrint(list, 5, "Weight");
+			seven_sortAndPrint(list, 6, "Acceleration");
+			seven_sortAndPrint(list, 7, "Year");
 
 		} catch (IOException io) {
 			System.err.println("File does not exist!!!!!");
 		}
-	}
-
-	void seven_printCars(ArrayList<String> list){
-
-		// System.out.println(Arrays.toString(list.toArray()));
-		String[] array = new String[list.size()];
-		array = list.toArray(array);
-
-
-		seven_sortAndPrint(list, 1, "MPG");
-		seven_sortAndPrint(list, 2, "# Cylinders");
-		seven_sortAndPrint(list, 3, "Displacement");
-		seven_sortAndPrint(list, 4, "Horsepower");
-		seven_sortAndPrint(list, 5, "Weight");
-		seven_sortAndPrint(list, 6, "Acceleration");
-		seven_sortAndPrint(list, 7, "year");
-
-
-		// seven_sortRev(array);
-		// for (String i: array){
-		// 	System.out.println(i.replace("\t", " ==> "));
-		// }
-
-		// System.out.println("highest: ");
-		// for (int i = 0; i < 3; i++){
-		// 	System.out.println(array[i].split("\t")[0]);
-		// }
-
-		// System.out.println("lowest: ");
-		// for (int i = array.length - 1; i > array.length - 4; i--){
-		// 	System.out.println(array[i].split("\t")[0]);
-		// }
-
-		for (int i = 0; i < list.size(); i++){
-			for (int j = 0; j < list.size(); j++){
-				// System.out.print(list.get(i)[j] + " | ");
-			}
-			// System.out.println();
-		}
-
 	}
 
 	void seven_sortAndPrint(ArrayList<String> list, int data, String dataName){
@@ -442,8 +408,9 @@ public class FileTemplate {
 			if (list.get(i).split("\t")[data].equals("NA"))
 				list.remove(i);
 
-		ArrayList<String> listHigh = (ArrayList) list.clone();
-		ArrayList<String> listLow = (ArrayList) list.clone();
+		ArrayList<String> listHigh = (ArrayList<String>) list.clone();
+		ArrayList<String> listLow  = (ArrayList<String>) list.clone();
+
 		String numOfTabs = "";
 
 		Collections.sort(listHigh, new Comparator<String>(){
