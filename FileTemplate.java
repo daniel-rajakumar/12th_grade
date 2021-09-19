@@ -264,10 +264,10 @@ public class FileTemplate {
 			BufferedReader input = new BufferedReader(new FileReader(new File(fileName)));
 			String text;
 
-			ArrayList<String[]> sets = new ArrayList<>();
+			ArrayList<String> sets = new ArrayList<>();
 
 			while((text=input.readLine()) != null) {
-				sets.add(text.split(" "));
+				sets.add(" " + text + " ");
 			}
 
 			five_getIntersections(sets);
@@ -277,26 +277,48 @@ public class FileTemplate {
 		}
 	}
 
-	public ArrayList<String> five_getIntersections(ArrayList<String[]> list){
-		int current_setLine; 
+	public void five_getIntersections(ArrayList<String> list){
+		String[] setsFirstLine = null;
+		ArrayList<String> intersections = new ArrayList<>();
+		String intersection = "";
+		int setsCount = 0;
 
-		for (int line = 0; line < list.size(); line+=3){
-			current_setLine = line % 3;
+		for (int line = 0; line < list.size(); line++){
+			if (line % 3 == 0){
+				setsFirstLine = list.get(line).trim().split(" ");
 
-			for (int i = 0; i < list.get(line).length; i++){
-				// System.out.print(list.get(line)[i] + " ");
+				for (int i = 0; i < setsFirstLine.length; i++){
+					boolean inLineTwo = list.get(line + 1).contains(" " + setsFirstLine[i] + " "); 
+					boolean inLineThree = list.get(line + 2).contains(" " + setsFirstLine[i] + " "); 
 
-				for (int j = 0; j < list.get(line + 1).length; j++){
-					if (list.get(line)[i].equals(list.get(line + 1)[j])){
-						System.out.print(" -> " + list.get(line));
+					if (inLineTwo && inLineThree){
+						intersection += setsFirstLine[i] + " ";
+						// System.out.println("yes -> " + setsFirstLine[i]);
 					}
+
 				}
+
+				String[] sortedIntersections = intersection.split(" ");
+				
+				// sort
+				Arrays.sort(sortedIntersections, new Comparator<String>(){
+					public int compare(String one, String two){
+						return Integer.valueOf(one) - Integer.valueOf(two);
+					}
+				});
+
+				intersection = "";
+				
+				for (String i: sortedIntersections) 
+					intersection += i + " ";
+
+				System.out.printf("Set %s intersection = {%s}\n", ++setsCount,intersection.trim().replace(" ", ","));
+				intersections.add(intersection.trim());
+				intersection = "";
 			}
 
-			System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~");
 		}
 
-		return null;
 	}
 
 
