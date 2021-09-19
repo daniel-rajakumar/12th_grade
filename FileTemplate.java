@@ -278,47 +278,36 @@ public class FileTemplate {
 	}
 
 	public void five_getIntersections(ArrayList<String> list){
-		String[] setsFirstLine = null;
-		ArrayList<String> intersections = new ArrayList<>();
-		String intersection = "";
+		String[] setsFirstLine;
+		String intersection;
 		int setsCount = 0;
 
 		for (int line = 0; line < list.size(); line++){
 			if (line % 3 == 0){
+				intersection = "";
 				setsFirstLine = list.get(line).trim().split(" ");
 
 				for (int i = 0; i < setsFirstLine.length; i++){
 					boolean inLineTwo = list.get(line + 1).contains(" " + setsFirstLine[i] + " "); 
 					boolean inLineThree = list.get(line + 2).contains(" " + setsFirstLine[i] + " "); 
 
-					if (inLineTwo && inLineThree){
+					if (inLineTwo && inLineThree)
 						intersection += setsFirstLine[i] + " ";
-						// System.out.println("yes -> " + setsFirstLine[i]);
-					}
 
 				}
 
 				String[] sortedIntersections = intersection.split(" ");
 				
-				// sort
+				// sort 
 				Arrays.sort(sortedIntersections, new Comparator<String>(){
-					public int compare(String one, String two){
-						return Integer.valueOf(one) - Integer.valueOf(two);
+					public int compare(String a, String b){
+						return Integer.valueOf(a) - Integer.valueOf(b);
 					}
 				});
 
-				intersection = "";
-				
-				for (String i: sortedIntersections) 
-					intersection += i + " ";
-
-				System.out.printf("Set %s intersection = {%s}\n", ++setsCount,intersection.trim().replace(" ", ","));
-				intersections.add(intersection.trim());
-				intersection = "";
+				System.out.printf("Set %s intersection = {%s}\n", ++setsCount, Arrays.toString(sortedIntersections).replaceAll("\\[|\\]", ""));
 			}
-
 		}
-
 	}
 
 
