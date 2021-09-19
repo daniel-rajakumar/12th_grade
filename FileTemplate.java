@@ -10,7 +10,8 @@ public class FileTemplate {
 		// three("MastermindFile.txt");
 		// four("CensusApportionment.txt");
 		// five("Sets.txt");
-		six("Diamond.txt");
+		// six("Diamond.txt");
+		seven("Cars.txt");
 	}
 
 	/***********************************************************************/
@@ -337,23 +338,21 @@ public class FileTemplate {
 
 		String[][] matrix = new String[rowMatrix][colMatrix];
 
-		for (int i = 0; i < rowMatrix; i++){
-			for (int j = 0; j < colMatrix; j++){
+		// fill the matrix with "o"
+		for (int i = 0; i < rowMatrix; i++)
+			for (int j = 0; j < colMatrix; j++)
 				matrix[i][j] = "o";
-			}
-		}
 		
+
 		int from = colTopDiamond, to = colTopDiamond;
 
 		for (int i = rowTopDiamond; i < rowMatrix; i++){
-			for (int j = 0; j < colMatrix; j++){
-				// change "o" to "x" if it is in the range
-				if ((from <= j) && (j <= to)){
+			for (int j = 0; j < colMatrix; j++)
+				if ((from <= j) && (j <= to)) // change "o" to "x" if it is in the range
 					matrix[i][j] = "x";
-				}
-			}
 
-			// modify the range of row to print for each col...
+
+			// modify the range of col to print for each row...
 			if (i - rowTopDiamond < diamondLength - 1){
 				from--;
 				to++;
@@ -363,28 +362,52 @@ public class FileTemplate {
 			}
 		}
 
-		// System.out.printf("row of matrix: %s \n", rowMatrix);
-		// System.out.printf("col of matrix: %s \n", colMatrix);
-		// System.out.printf("diamond length: %s \n", diamondLength);
-		// System.out.printf("row of top diamond: %s \n", rowTopDiamond);
-		// System.out.printf("col of top diamond: %s \n", colTopDiamond);
-		// System.out.println("~~~~~~~~~~~~~~~~~~~~~~~");
-
-		// matrix[rowTopDiamond][colTopDiamond] = "x";
-
-
+		// print the matrix
 		for (String[] i: matrix){
-			for (String j: i){
+			for (String j: i)
 				System.out.print(j);
-			}
 			System.out.println();
 		}
-
-		
-
 	}
 
+	/***********************************************************************/
+	/*************************** Seven *************************************/
+	/***********************************************************************/
 
+	public void seven(String fileName){
+		try {
+			BufferedReader input = new BufferedReader(new FileReader(new File(fileName)));
+			String text;
+
+			ArrayList<String[]> list = new ArrayList<>();
+			while((text=input.readLine()) != null) {
+				list.add(text.trim().split("\t"));
+			}
+
+			seven_printCars(list);
+
+
+		} catch (IOException io) {
+			System.err.println("File does not exist!!!!!");
+		}
+	}
+
+	void seven_printCars(ArrayList<String[]> list){
+
+		System.out.println(Arrays.toString(list.get(1)));
+
+		Arrays.sort(list.get(1));
+
+		System.out.println(Arrays.toString(list.get(1)));
+
+		for (int i = 0; i < list.size(); i++){
+			for (int j = 0; j < list.get(i).length; j++){
+				// System.out.print(list.get(i)[j] + " | ");
+			}
+			// System.out.println();
+		}
+
+	}
 
 	/***********************************************************************/
 	/*************************** ..... *************************************/
