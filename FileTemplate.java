@@ -1,6 +1,9 @@
 import java.io.*;
 import java.lang.*;
 import java.util.*;
+
+import javax.print.attribute.standard.Severity;
+
 import java.math.*;
 public class FileTemplate {
 
@@ -379,9 +382,10 @@ public class FileTemplate {
 			BufferedReader input = new BufferedReader(new FileReader(new File(fileName)));
 			String text;
 
-			ArrayList<String[]> list = new ArrayList<>();
+			input.readLine();
+			ArrayList<String> list = new ArrayList<>();
 			while((text=input.readLine()) != null) {
-				list.add(text.trim().split("\t"));
+				list.add(text);
 			}
 
 			seven_printCars(list);
@@ -392,20 +396,105 @@ public class FileTemplate {
 		}
 	}
 
-	void seven_printCars(ArrayList<String[]> list){
+	void seven_printCars(ArrayList<String> list){
 
-		System.out.println(Arrays.toString(list.get(1)));
+		// System.out.println(Arrays.toString(list.toArray()));
+		String[] array = new String[list.size()];
+		array = list.toArray(array);
 
-		Arrays.sort(list.get(1));
 
-		System.out.println(Arrays.toString(list.get(1)));
+		seven_sortAndPrint(array, 1, "MPG");
+		seven_sortAndPrint(array, 2, "# Cylinders");
+		seven_sortAndPrint(array, 3, "Displacement");
+		seven_sortAndPrint(array, 4, "Horsepower");
+		seven_sortAndPrint(array, 5, "Weight");
+		seven_sortAndPrint(array, 6, "Acceleration");
+		seven_sortAndPrint(array, 7, "year");
+
+
+		// seven_sortRev(array);
+		// for (String i: array){
+		// 	System.out.println(i.replace("\t", " ==> "));
+		// }
+
+		// System.out.println("highest: ");
+		// for (int i = 0; i < 3; i++){
+		// 	System.out.println(array[i].split("\t")[0]);
+		// }
+
+		// System.out.println("lowest: ");
+		// for (int i = array.length - 1; i > array.length - 4; i--){
+		// 	System.out.println(array[i].split("\t")[0]);
+		// }
 
 		for (int i = 0; i < list.size(); i++){
-			for (int j = 0; j < list.get(i).length; j++){
+			for (int j = 0; j < list.size(); j++){
 				// System.out.print(list.get(i)[j] + " | ");
 			}
 			// System.out.println();
 		}
+
+	}
+
+	void seven_sortAndPrint(String[] array, int data, String dataName){
+		String[] arrayHigh = array.clone();
+		String[] arrayLow = array.clone();
+		String numOfTabs = "";
+		Arrays.sort(arrayHigh, new Comparator<String>(){
+			public int compare(String a, String b){
+				a = a.split("\t")[data];
+				b = b.split("\t")[data];
+
+				if (a.equals("NA") || b.equals("NA")) return 1;
+
+				return Double.compare(	Double.valueOf(a), 
+						   				Double.valueOf(b));
+			}		
+		}); 
+
+		Arrays.sort(arrayLow, new Comparator<String>(){
+			public int compare(String a, String b){
+				return Double.compare(	Double.valueOf(b.split("\t")[data]), 
+						   				Double.valueOf(a.split("\t")[data]));
+			}		
+		}); 
+
+		if 		(dataName.length() >= (8*4)) 	numOfTabs = "\t";
+		else if	(dataName.length() >= (8*3)) 	numOfTabs = "\t\t";
+		else if (dataName.length() >= (8*2)) 	numOfTabs = "\t\t\t";
+		else if (dataName.length() >= (8*1)) 	numOfTabs = "\t\t\t\t";
+		else if (dataName.length() >= (8*0)) 	numOfTabs = "\t\t\t\t\t";
+		else 									numOfTabs = "\t\t\t\t\t\t";
+	
+		System.out.printf("Highest %s%sLowest %s\n", dataName, numOfTabs, dataName);
+
+		for (int i = 0; i < 3; i++){
+			numOfTabs = "";
+
+			if (arrayHigh[i].split("\t")[0].length() > (8*2)) 	numOfTabs = "\t\t\t\t";
+			else												numOfTabs = "\t\t\t\t\t";
+
+			if 		(arrayHigh[i].split("\t")[0].length() >= (8*4)) 	numOfTabs = "\t\t";
+			else if	(arrayHigh[i].split("\t")[0].length() >= (8*3)) 	numOfTabs = "\t\t\t";
+			else if (arrayHigh[i].split("\t")[0].length() >= (8*2)) 	numOfTabs = "\t\t\t\t";
+			else if (arrayHigh[i].split("\t")[0].length() >= (8*1)) 	numOfTabs = "\t\t\t\t\t";
+			else if (arrayHigh[i].split("\t")[0].length() >= (8*0)) 	numOfTabs = "\t\t\t\t\t\t";
+			else 									numOfTabs = "\t\t\t\t\t\t";
+
+			// System.out.println(arrayHigh[i].split("\t")[0] + tab + arrayLow[i].split("\t")[0]);
+			System.out.printf("%s%s%s\n", arrayHigh[i].split("\t")[0], numOfTabs, arrayLow[i].split("\t")[0]);
+		}
+
+		System.out.println();
+	}
+
+	void seven_sortRev(String[] array){
+		Arrays.sort(array, new Comparator<String>(){
+			public int compare(String a, String b){
+				return Double.compare(	Double.valueOf(b.split("\t")[1]), 
+						   				Double.valueOf(a.split("\t")[1]));
+			}		
+		});
 
 	}
 
