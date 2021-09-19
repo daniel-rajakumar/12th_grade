@@ -264,10 +264,10 @@ public class FileTemplate {
 			BufferedReader input = new BufferedReader(new FileReader(new File(fileName)));
 			String text;
 
-			ArrayList<String> sets = new ArrayList<>();
+			ArrayList<String[]> sets = new ArrayList<>();
 
 			while((text=input.readLine()) != null) {
-				sets.add(text);
+				sets.add(text.split(" "));
 			}
 
 			five_getIntersections(sets);
@@ -277,26 +277,23 @@ public class FileTemplate {
 		}
 	}
 
-	public ArrayList<String> five_getIntersections(ArrayList<String> list){
+	public ArrayList<String> five_getIntersections(ArrayList<String[]> list){
+		int current_setLine; 
 
-		String set = " ";
-		for (int i = 0; i < list.size(); i++){
-			set += list.get(i) + " - ";
+		for (int line = 0; line < list.size(); line+=3){
+			current_setLine = line % 3;
 
-			if (i % 3 == 2){
-				String[] row = set.split("-");
+			for (int i = 0; i < list.get(line).length; i++){
+				// System.out.print(list.get(line)[i] + " ");
 
-
-				for (int j = 0; j < row.length; j++){
-					for (int k = 0; k < row.length; k++){
-						if (set.split(" ")[j] == set.split(" ")[k]);
-							System.out.print(row[j] + "\n");
+				for (int j = 0; j < list.get(line + 1).length; j++){
+					if (list.get(line)[i].equals(list.get(line + 1)[j])){
+						System.out.print(" -> " + list.get(line));
 					}
 				}
-
-				// System.out.println(set);
-				set = " ";
 			}
+
+			System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~");
 		}
 
 		return null;
