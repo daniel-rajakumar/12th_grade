@@ -8,13 +8,13 @@ import java.math.*;
 public class FileTemplate {
 
 	public FileTemplate() {
-		// one("LucasNumFile.txt");
-		// two("AmicableNumsFile.txt");
-		// three("MastermindFile.txt");
-		// four("CensusApportionment.txt");
-		// five("Sets.txt");
-		// six("Diamond.txt");
-		// seven("Cars.txt");
+		one("LucasNumFile.txt");
+		two("AmicableNumsFile.txt");
+		three("MastermindFile.txt");
+		four("CensusApportionment.txt");
+		five("Sets.txt");
+		six("Diamond.txt");
+		seven("Cars.txt");
 	}
 
 	/***********************************************************************/
