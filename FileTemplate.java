@@ -9,8 +9,8 @@ public class FileTemplate {
 		// two("AmicableNumsFile.txt");
 		// three("MastermindFile.txt");
 		// four("CensusApportionment.txt");
-		five("Sets.txt");
-
+		// five("Sets.txt");
+		six("Diamond.txt");
 	}
 
 	/***********************************************************************/
@@ -267,7 +267,7 @@ public class FileTemplate {
 			ArrayList<String> sets = new ArrayList<>();
 
 			while((text=input.readLine()) != null) {
-				sets.add(" " + text + " ");
+				sets.add(text + " ");
 			}
 
 			five_getIntersections(sets);
@@ -278,21 +278,21 @@ public class FileTemplate {
 	}
 
 	public void five_getIntersections(ArrayList<String> list){
-		String[] setsFirstLine;
+		String[] firstLineOfASet;
 		String intersection;
 		int setsCount = 0;
 
 		for (int line = 0; line < list.size(); line++){
 			if (line % 3 == 0){
-				intersection = "";
-				setsFirstLine = list.get(line).trim().split(" ");
+				intersection  = "";
+				firstLineOfASet = list.get(line).split(" ");
 
-				for (int i = 0; i < setsFirstLine.length; i++){
-					boolean inLineTwo = list.get(line + 1).contains(" " + setsFirstLine[i] + " "); 
-					boolean inLineThree = list.get(line + 2).contains(" " + setsFirstLine[i] + " "); 
+				for (int i = 0; i < firstLineOfASet.length; i++){
+					boolean inLineTwo   = list.get(line + 1).contains(firstLineOfASet[i] + " "); 
+					boolean inLineThree = list.get(line + 2).contains(firstLineOfASet[i] + " "); 
 
 					if (inLineTwo && inLineThree)
-						intersection += setsFirstLine[i] + " ";
+						intersection += firstLineOfASet[i] + " ";
 
 				}
 
@@ -310,7 +310,79 @@ public class FileTemplate {
 		}
 	}
 
+	/***********************************************************************/
+	/*************************** Six *************************************/
+	/***********************************************************************/
 
+	public void six(String fileName){
+		try {
+			BufferedReader input = new BufferedReader(new FileReader(new File(fileName)));
+			String text;
+
+			while((text=input.readLine()) != null) {
+				six_printStars(text.split(" "));
+			}
+
+		} catch (IOException io) {
+			System.err.println("File does not exist!!!!!");
+		}
+	}
+
+	public void six_printStars(String[] line){
+		int rowMatrix = Integer.valueOf(line[0]),
+			colMatrix = Integer.valueOf(line[1]),
+			diamondLength = Integer.valueOf(line[2]),
+			rowTopDiamond = Integer.valueOf(line[3]),
+			colTopDiamond = Integer.valueOf(line[4]);
+
+		String[][] matrix = new String[rowMatrix][colMatrix];
+
+		for (int i = 0; i < rowMatrix; i++){
+			for (int j = 0; j < colMatrix; j++){
+				matrix[i][j] = "o";
+			}
+		}
+		
+		int from = colTopDiamond, to = colTopDiamond;
+
+		for (int i = rowTopDiamond; i < rowMatrix; i++){
+			for (int j = 0; j < colMatrix; j++){
+				// change "o" to "x" if it is in the range
+				if ((from <= j) && (j <= to)){
+					matrix[i][j] = "x";
+				}
+			}
+
+			// modify the range of row to print for each col...
+			if (i - rowTopDiamond < diamondLength - 1){
+				from--;
+				to++;
+			} else {
+				from++;
+				to--;
+			}
+		}
+
+		// System.out.printf("row of matrix: %s \n", rowMatrix);
+		// System.out.printf("col of matrix: %s \n", colMatrix);
+		// System.out.printf("diamond length: %s \n", diamondLength);
+		// System.out.printf("row of top diamond: %s \n", rowTopDiamond);
+		// System.out.printf("col of top diamond: %s \n", colTopDiamond);
+		// System.out.println("~~~~~~~~~~~~~~~~~~~~~~~");
+
+		// matrix[rowTopDiamond][colTopDiamond] = "x";
+
+
+		for (String[] i: matrix){
+			for (String j: i){
+				System.out.print(j);
+			}
+			System.out.println();
+		}
+
+		
+
+	}
 
 
 
