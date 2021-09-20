@@ -10,7 +10,7 @@ public class AnonymousInnerClass_two extends JPanel {
 
 		frame.addMouseMotionListener(new  MouseMotionListener(){
 			public void mouseDragged(MouseEvent e){
-				System.out.println("hi");
+				System.out.print("");
 			}
 
 			public void mouseMoved(MouseEvent e) {
