@@ -12,7 +12,7 @@ public class AnonymousInnerClass_one extends JPanel {
 	}
 
 	public static void main (String[] args){
-		AnonymousInnerClass_one demo = new AnonymousInnerClass_one();
+		new AnonymousInnerClass_one();
 	 }
 
 	 public class MouseInterface implements MouseMotionListener {
