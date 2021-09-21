@@ -1,30 +1,59 @@
 import java.awt.event.*;
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import javax.swing.JFrame;
+
 
 public class AnonymousInnerClass_three extends JPanel {
-	public AnonymousInnerClass_three(){
 
+	public AnonymousInnerClass_three(){
 		JFrame frame = new JFrame();
+		frame.add(this);
 		frame.setVisible(true);
-		frame.setSize(200, 200);
 		setFocusable(true);
 
-		addKeyListener(new KeyListener(){
-
-			public void keyPressed(KeyEvent e) {  System.out.println(e.getKeyCode() + " hello ");}
+		frame.addKeyListener(new KeyListener(){
 
 			@Override
-			public void keyReleased(KeyEvent e) {  System.out.println(e.getKeyCode() + " hello ");}
+			public void keyTyped(KeyEvent e) {
+				switch (e.getKeyChar()) {
+					case 'a': case 'e': case 'i': case 'o': case 'u':
+						System.out.printf("%s -> vowels\n", e.getKeyChar());
+						break;
 
-			public void keyTyped(KeyEvent e) { System.out.println(e.getKeyCode() + " hello ");}
+					default:
+						System.out.printf("%s -> consonants\n", e.getKeyChar());
+						break;
+				}
+				if (e.getKeyChar() == 'e'){
+
+				}
+				
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+
+				
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
 
 		});
+
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
-	public static void main (String[] args){
-		new AnonymousInnerClass_three();
-	 }
+	public static void main (String [] args){
+		AnonymousInnerClass_three demo = new AnonymousInnerClass_three();
+	}
 
+	public class KeyInterface implements KeyListener {
+			public void keyPressed(KeyEvent e){ System.out.println(e.getKeyChar()); }
+			public void keyReleased(KeyEvent e){}
+			public void keyTyped(KeyEvent e){}
+	}
 }
