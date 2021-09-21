@@ -24,12 +24,13 @@ public class AnonymousInnerClass_two extends JPanel {
 			}
 
 			int prevGetX = 0, prevGetY = 0;
-			int currentDistance = 0;
+			double currentDistance = 1;
 			boolean firstLocation = true;
 			public void mouseMoved(MouseEvent e) {
 				if (firstLocation) 	firstLocation = false; 
 				else 				currentDistance = Math.abs((e.getX() - prevGetX) + (e.getY() - prevGetY));
 
+				System.out.printf("current Distrance -> %s, pixel width -> %s /n", currentDistance, pixelWidth);
 				currentDistance *= pixelWidth; // adjust the pixel size
 				currentDistance *= 0.83333333; // inch -> feet
 				totalDistance += currentDistance;
