@@ -12,29 +12,34 @@ public class AnonymousInnerClass_two extends JPanel {
 		setFocusable(true);
 
 		int resScreenWidth = (int)size.getWidth(), resScreenHeight = (int)size.getHeight();
-		double physicalWidth = 14.04, physicalHeight = 9.18; // inch
+		double physicalWidth = 16.08, physicalHeight = 10.05; // inch
 		int numOfPixels = resScreenWidth * resScreenHeight; //pixel
 		double screenSize = physicalWidth *  physicalHeight; // inch
 		double pixelWidth = (screenSize/numOfPixels) * 100; // inch
 		frame.addMouseMotionListener(new  MouseMotionListener(){
 			double totalDistance = 0;
-			
+
 			public void mouseDragged(MouseEvent e){
 				System.out.printf("(%s,%s)\n", e.getX(), e.getY());
 			}
 
 			int prevGetX = 0, prevGetY = 0;
-			double currentDistance = 1;
+			double currentDistance = 0;
 			boolean firstLocation = true;
 			public void mouseMoved(MouseEvent e) {
-				if (firstLocation) 	firstLocation = false; 
+				if (firstLocation) 	firstLocation = false;
 				else 				currentDistance = Math.abs((e.getX() - prevGetX) + (e.getY() - prevGetY));
 
-				// System.out.printf("current Distrance -> %s, pixel width -> %s /n", currentDistance, pixelWidth);
 				currentDistance *= pixelWidth; // adjust the pixel size
 				currentDistance *= 0.083333333; // inch -> feet
 				totalDistance += currentDistance;
-				System.out.printf("%s feet \n", totalDistance);
+
+				totalDistance = Math.round(a * 100)/100;
+				if (totalDistance != 0){
+					System.out.printf("%s feet \n", totalDistance);
+
+
+
 				prevGetX = e.getX(); prevGetY = e.getY();
 			}
 		});
