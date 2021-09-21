@@ -13,7 +13,6 @@ public class AnonymousInnerClass_three extends JPanel {
 
 		frame.addKeyListener(new KeyListener(){
 
-			@Override
 			public void keyTyped(KeyEvent e) {
 				switch (e.getKeyChar()) {
 					case 'a': case 'e': case 'i': case 'o': case 'u':
@@ -24,23 +23,11 @@ public class AnonymousInnerClass_three extends JPanel {
 						System.out.printf("%s -> consonants\n", e.getKeyChar());
 						break;
 				}
-				if (e.getKeyChar() == 'e'){
-
-				}
-				
 			}
 
-			@Override
-			public void keyPressed(KeyEvent e) {
 
-				
-			}
-
-			@Override
-			public void keyReleased(KeyEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
+			public void keyPressed(KeyEvent e) { }
+			public void keyReleased(KeyEvent e) { }
 
 		});
 

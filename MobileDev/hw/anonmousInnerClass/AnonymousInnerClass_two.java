@@ -30,11 +30,11 @@ public class AnonymousInnerClass_two extends JPanel {
 				if (firstLocation) 	firstLocation = false; 
 				else 				currentDistance = Math.abs((e.getX() - prevGetX) + (e.getY() - prevGetY));
 
-				System.out.printf("current Distrance -> %s, pixel width -> %s /n", currentDistance, pixelWidth);
+				// System.out.printf("current Distrance -> %s, pixel width -> %s /n", currentDistance, pixelWidth);
 				currentDistance *= pixelWidth; // adjust the pixel size
-				currentDistance *= 0.83333333; // inch -> feet
+				currentDistance *= 0.083333333; // inch -> feet
 				totalDistance += currentDistance;
-				System.out.printf("(%s)\n", (totalDistance));
+				System.out.printf("%s feet \n", totalDistance);
 				prevGetX = e.getX(); prevGetY = e.getY();
 			}
 		});
