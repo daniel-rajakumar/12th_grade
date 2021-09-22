@@ -33,11 +33,7 @@ public class OlympicTeam {
 
 
 	public static void main(String[] args){
-
-		Olympics tokyo2020 = new Olympics("olympic-medals.csv");
-
-		System.out.println(tokyo2020);
-
+		System.out.println(new Olympics("olympic-medals.csv"));
 	}
 
 }
