@@ -1,10 +1,11 @@
-
-
+import java.io.*;
+import java.util.*;
+import java.math.*;
 
 public class OlympicTeam {
 
 	private String country;
-	private int numGold, numSilver, numBronze;
+	private int numGold, numSilver, numBronze, sum;
 
 	OlympicTeam(String country, int numGold, int numSilver, int numBronze){
 		this.country = country;
@@ -32,8 +33,15 @@ public class OlympicTeam {
 	}
 
 
+
+
 	public static void main(String[] args){
-		System.out.println(new Olympics("olympic-medals.csv"));
+		//System.out.println(new Olympics("olympic-medals.csv"));
+		Olympics olympics = new Olympics("olympic-medals.csv");
+		System.out.println(olympics);
+		System.out.println(olympics.getSumOfCountry());
+
+
 	}
 
 }

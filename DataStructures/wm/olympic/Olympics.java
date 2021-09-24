@@ -39,9 +39,21 @@ public class Olympics {
 		return str;
 	}
 
+	public int getSumOfCountry(){
+		int sum = 0;
+
+		for (OlympicTeam team: teams)
+			if (team.getNumBronze() > team.getCountry().length())
+				sum += team.getNumBronze();
+
+		return sum;
+	}
+
 
 	public static void main(String[] args){
-		System.out.println(new Olympics("olympic-medals.csv"));
+		Olympics olympics = new Olympics("olympic-medals.csv");
+		System.out.println(olympics);
+		System.out.println(olympics.getSumOfCountry());
 
 	}
 
