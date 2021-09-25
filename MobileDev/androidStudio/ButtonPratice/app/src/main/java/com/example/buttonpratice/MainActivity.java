@@ -27,23 +27,17 @@ public class MainActivity extends AppCompatActivity {
         button2.setText("Size");
         button3.setText("Swap");
 
-        task1();
         task2();
         task3();
         extra1();
     }
 
-    public void task1(){
-        button1.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                int r = (int)(Math.random() * 256),
-                    g = (int)(Math.random() * 256),
-                    b = (int)(Math.random() * 256);
+    public void task1(View view){
+        int r = (int)(Math.random() * 256),
+            g = (int)(Math.random() * 256),
+            b = (int)(Math.random() * 256);
 
-                button1.setTextColor(Color.rgb(r, g, b));
-            }
-        });
+        button1.setTextColor(Color.rgb(r, g, b));
     }
 
     public void task2(){
