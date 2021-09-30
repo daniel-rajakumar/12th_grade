@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.*;
-import java.math.*;
 
 public class OlympicTeam {
 
@@ -37,9 +36,15 @@ public class OlympicTeam {
 
 	public static void main(String[] args){
 		//System.out.println(new Olympics("olympic-medals.csv"));
+		// System.out.println(olympics.getSumOfCountry());
+
 		Olympics olympics = new Olympics("olympic-medals.csv");
+		System.out.println("Unsorted");
 		System.out.println(olympics);
-		System.out.println(olympics.getSumOfCountry());
+		olympics.sortByCountry();
+		System.out.println("\n\nsorted");
+		System.out.println(olympics);
+
 
 
 	}
