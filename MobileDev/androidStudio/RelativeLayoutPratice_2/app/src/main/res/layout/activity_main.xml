@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/OnePlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="100dp"
+        android:textSize="15dp"
+        android:text="One Player" />
+
+    <TextView
+        android:id="@+id/TwoPlayers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/OnePlayer"
+        android:layout_centerInParent="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="44dp"
+        android:textSize="15dp"
+        android:text="Two Players" />
+
+
+    <TextView
+        android:id="@+id/OptionMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_alignTop="@+id/OnePlayer"
+        android:layout_marginTop="20dp"
+        android:textSize="30dp"
+        android:text="OptionMenu"/>
+
+    <Button
+        android:id="@+id/Go"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_alignTop="@+id/OptionMenu"
+        android:layout_marginTop="90dp"
+        android:paddingHorizontal="40dp"
+        android:text="GO"/>
+
+    <Button
+        android:id="@+id/RESTART"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_alignTop="@+id/Go"
+        android:layout_marginTop="125dp"
+        android:text="RESTART"/>
+
+    <Button
+        android:id="@+id/END"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_alignTop="@+id/RESTART"
+        android:paddingHorizontal="35dp"
+        android:layout_marginTop="125dp"
+        android:text="END"/>
+
+
+    <Button
+        android:id="@+id/leftArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/OnePlayer"
+        android:layout_alignTop="@+id/OnePlayer"
+        android:layout_marginTop="500dp"
+        android:text="&lt;-"/>
+
+    <Button
+        android:id="@+id/RightArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/TwoPlayers"
+        android:layout_alignTop="@+id/TwoPlayers"
+        android:layout_marginTop="500dp"
+        android:text="-&gt;"/>
+
+
+</RelativeLayout>

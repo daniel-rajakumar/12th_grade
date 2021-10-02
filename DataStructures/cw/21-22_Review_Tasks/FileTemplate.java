@@ -5,13 +5,15 @@ import java.math.*;
 public class FileTemplate {
 
     public FileTemplate() {
-        one("LucasNumFile.txt"); 		 gap();
-        two("AmicableNumsFile.txt"); 	 gap();
-        three("MastermindFile.txt"); 	 gap();
+        gap();
+
+        one("LucasNumFile.txt");         gap();
+        two("AmicableNumsFile.txt");     gap();
+        three("MastermindFile.txt");     gap();
         four("CensusApportionment.txt"); gap();
-        five("Sets.txt"); 				 gap();
-        six("Diamond.txt"); 		 	 gap();
-        seven("Cars.txt");
+        five("Sets.txt");                gap();
+        six("Diamond.txt");              gap();
+        seven("Cars.txt");               gap();
     }
 
     /***********************************************************************/
@@ -407,7 +409,6 @@ public class FileTemplate {
 
         ArrayList<String> listHigh = (ArrayList<String>) list.clone();
         ArrayList<String> listLow  = (ArrayList<String>) list.clone();
-
         String numOfTabs = "";
 
         Collections.sort(listHigh, new Comparator<String>(){
@@ -423,14 +424,14 @@ public class FileTemplate {
             }		
         }); 
 
-        if 		(dataName.length() >= (8*1)) 	numOfTabs = "\t\t\t\t";
+        if      (dataName.length() >= (8*1)) 	numOfTabs = "\t\t\t\t";
         else if (dataName.length() >= (8*0)) 	numOfTabs = "\t\t\t\t\t";
     
         System.out.printf("Highest %s%sLowest %s\n", dataName, numOfTabs, dataName);
 
         for (int i = 0; i < 3; i++){
 
-            if		(listHigh.get(i).split("\t")[0].length() >= (8*3)) 	numOfTabs = "\t\t\t";
+            if      (listHigh.get(i).split("\t")[0].length() >= (8*3)) 	numOfTabs = "\t\t\t";
             else if (listHigh.get(i).split("\t")[0].length() >= (8*2)) 	numOfTabs = "\t\t\t\t";
             else if (listHigh.get(i).split("\t")[0].length() >= (8*1)) 	numOfTabs = "\t\t\t\t\t";
             else if (listHigh.get(i).split("\t")[0].length() >= (8*0)) 	numOfTabs = "\t\t\t\t\t\t";
@@ -440,6 +441,7 @@ public class FileTemplate {
 
         System.out.println();
     }
+
 
     /***********************************************************************/
     /*************************** ..... *************************************/
