@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.awt.event.*;
-import java.util.*;
+
 public class Main extends JPanel implements KeyListener
 {
 	private JFrame frame;
@@ -22,7 +22,6 @@ public class Main extends JPanel implements KeyListener
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
-
 	}
 
 
@@ -56,7 +55,10 @@ public class Main extends JPanel implements KeyListener
 		if (debug){ // PRINT EXTRA INFO TO HELP DEBUG
 			g2.setColor(Color.YELLOW);
 			// g2.drawString("Debug message here",40, numRows*size+2*size);
-			g2.drawString("Dir: " + dir,40, numRows*size+2*size);
+			if (dir == 0) g2.drawString("Dir: UP ",40, numRows*size+2*size);
+			if (dir == 1) g2.drawString("Dir: RIGHT ",40, numRows*size+2*size);
+			if (dir == 2) g2.drawString("Dir: DOWN ",40, numRows*size+2*size);
+			if (dir == 3) g2.drawString("Dir: LEFT ",40, numRows*size+2*size);
 			g2.setColor(Color.GRAY);
 		}
 	}
@@ -70,49 +72,37 @@ public class Main extends JPanel implements KeyListener
 		if(e.getKeyCode()==38)
 		{
 			//0=up 1=right 2=down 3=left
-			if(dir==0 && row > 0 && maze[row-1][col] != '#'){
-				// Move Explorer up and set previous space to blank
-
-			}
-
-			// move right
-			if ((dir == 1) && (col < numCols - 1) && (maze[row][col+1] != '#')){
-				maze[row][col] = ' ';
-				col++;
+			if ((dir==0) && (row > 0) && (maze[row-1][col] != '#')) {
+				maze[row--][col] = ' ';
 				maze[row][col] = 'E';
 			}
-
-			// move left
-			if ((dir == 3) && (col < numCols + 1) && (maze[row][col-1] != '#')){
-				maze[row][col] = ' ';
-				col--;
+			if ((dir == 3) && (col > 0) && (maze[row][col-1] != '#')) {
+				maze[row][col--] = ' ';
 				maze[row][col] = 'E';
 			}
-
-			// move down
-			if ((dir == 2) && (row < numRows - 1) && (maze[row+1][col] != '#')){
-				maze[row][col] = ' ';
-				row++;
+			if ((dir == 1) && (col < numCols - 1) && (maze[row][col+1] != '#')) {
+				maze[row][col++] = ' ';
 				maze[row][col] = 'E';
 			}
-
-			// move right
-			if ((dir == 0) && (row < numRows + 1) && (maze[row - 1][col] != '#')){
-				maze[row][col] = ' ';
-				row--;
+			if ((dir==2) && (row < numRows - 1) && (maze[row+1][col] != '#')) {
+				maze[row++][col] = ' ';
 				maze[row][col] = 'E';
 			}
-
-
 		}
 
 
 		if(e.getKeyCode()==39) //rotate right
 		{
-			dir++;
-			if(dir>3)
+			if(++dir>3)
 				dir=0;
 		}
+
+		if(e.getKeyCode()==37) //rotate right
+		{
+			if(--dir<0)
+				dir=3;
+		}
+
 
 		repaint();
 	}
