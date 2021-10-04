@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.awt.event.*;
+import java.util.*;
 public class Main extends JPanel implements KeyListener
 {
 	private JFrame frame;
@@ -23,6 +24,8 @@ public class Main extends JPanel implements KeyListener
 		frame.setVisible(true);
 
 	}
+
+
 	public void paintComponent(Graphics g)
 	{
 
@@ -52,22 +55,59 @@ public class Main extends JPanel implements KeyListener
 		}
 		if (debug){ // PRINT EXTRA INFO TO HELP DEBUG
 			g2.setColor(Color.YELLOW);
-			g2.drawString("Debug message here",40, numRows*size+2*size);
+			// g2.drawString("Debug message here",40, numRows*size+2*size);
+			g2.drawString("Dir: " + dir,40, numRows*size+2*size);
 			g2.setColor(Color.GRAY);
 		}
 	}
+
+
 	public void keyPressed(KeyEvent e)
 	{
 		System.out.println(e.getKeyCode());
 		//forward
+
 		if(e.getKeyCode()==38)
 		{
 			//0=up 1=right 2=down 3=left
-			if(dir==0 && row > 1 && maze[row-1][col] != '#'){
+			if(dir==0 && row > 0 && maze[row-1][col] != '#'){
 				// Move Explorer up and set previous space to blank
+
 			}
 
+			// move right
+			if ((dir == 1) && (col < numCols - 1) && (maze[row][col+1] != '#')){
+				maze[row][col] = ' ';
+				col++;
+				maze[row][col] = 'E';
+			}
+
+			// move left
+			if ((dir == 3) && (col < numCols + 1) && (maze[row][col-1] != '#')){
+				maze[row][col] = ' ';
+				col--;
+				maze[row][col] = 'E';
+			}
+
+			// move down
+			if ((dir == 2) && (row < numRows - 1) && (maze[row+1][col] != '#')){
+				System.out.println("HELLOOOOOO");
+				maze[row][col] = ' ';
+				row++;
+				maze[row][col] = 'E';
+			}
+
+			// move left
+			if ((dir == 0) && (row < numRows + 1) && (maze[row - 1][col] != '#')){
+				maze[row][col] = ' ';
+				row--;
+				maze[row][col] = 'E';
+			}
+
+
 		}
+
+
 		if(e.getKeyCode()==39) //rotate right
 		{
 			dir++;
@@ -86,10 +126,20 @@ public class Main extends JPanel implements KeyListener
 
 	public void setBoard()
 	{
+
 		// Read maze from file and set to maze 2d array
-		maze[0][0] = 'E';
-		maze[0][1] = ' ';
-		maze[0][2] = ' ';
+		try {
+			BufferedReader input = new BufferedReader(new FileReader(new File("maze0.txt")));
+
+			int lines = 4;
+
+			for (int i = 0; i < lines; i++)
+				maze[i] = input.readLine().toCharArray();
+
+		} catch (IOException io) {
+		    System.err.println("File does not exist!!!!!");
+        }
+
 
 
 	}
