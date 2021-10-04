@@ -91,13 +91,12 @@ public class Main extends JPanel implements KeyListener
 
 			// move down
 			if ((dir == 2) && (row < numRows - 1) && (maze[row+1][col] != '#')){
-				System.out.println("HELLOOOOOO");
 				maze[row][col] = ' ';
 				row++;
 				maze[row][col] = 'E';
 			}
 
-			// move left
+			// move right
 			if ((dir == 0) && (row < numRows + 1) && (maze[row - 1][col] != '#')){
 				maze[row][col] = ' ';
 				row--;
