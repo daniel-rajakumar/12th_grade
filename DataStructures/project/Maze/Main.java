@@ -9,12 +9,12 @@ import java.awt.image.BufferedImage;
 
 public class Main extends JPanel implements KeyListener {
 	private JFrame frame;
-	private int explorer_y = 0, explorer_x = 0, explorer_dir = 0;
-	private int gamePixelSize = 40;  		 
-	private boolean debug = true; 
-	private int mazeLength_x, mazeLength_y; 
+	private int explorer_x, explorer_y, explorer_dir;
+	private int gamePixelSize;  		 
+	private boolean debug; 
+	private int mazeLength_y, mazeLength_x; 
 	private char[][] maze; 
-	private int steps = 0;
+	private int steps;
 
 	public Main() {
 		setBoard();  //write this method to read board from file
@@ -27,13 +27,37 @@ public class Main extends JPanel implements KeyListener {
 		frame.setVisible(true);
 	}
 
+	public void setBoard()   {
+		explorer_x = 0; explorer_y = 0; explorer_dir = 0;
+		gamePixelSize = 40;
+		debug = true;
+		steps = 0;
+
+		// Read maze from file and set to maze 2d array
+		try {
+			String file = "maze0.txt";
+
+			BufferedReader input = new BufferedReader(new FileReader(new File(file)));
+			mazeLength_y = (int) Files.lines(Paths.get(file)).count();
+			mazeLength_x = (new BufferedReader(new FileReader(new File(file))).readLine().length());
+
+			maze = new char[mazeLength_y][mazeLength_x];
+
+			for (int i = 0; i < mazeLength_y; i++)
+				maze[i] = input.readLine().toCharArray();
+
+		} catch (IOException io) {
+			System.err.println(io);
+        }
+	}
+
 
 
 	public void paintComponent(Graphics g) {
 
 		//Make Background Blank
 		super.paintComponent(g);
-		Graphics2D g2 = (Graphics2D)g;
+		Graphics2D g2 = (Graphics2D) g;
 		g2.setColor(Color.BLACK);
 		g2.fillRect(0,0,frame.getWidth(),frame.getHeight());
 
@@ -88,7 +112,7 @@ public class Main extends JPanel implements KeyListener {
 			// g2.drawString("Steps: " + steps, 0, (mazeLength_x * gamePixelSize + 2 * gamePixelSize));
 
 			int loc_x = 0; 
-			int loc_y = mazeLength_x * gamePixelSize + 2 * gamePixelSize;
+			int loc_y = mazeLength_y * gamePixelSize + 2 * gamePixelSize;
 			g2.drawString("Steps: " + steps, loc_x, loc_y);
 			g2.setColor(Color.GRAY);
 		}
@@ -102,27 +126,27 @@ public class Main extends JPanel implements KeyListener {
 
 		if(e.getKeyCode()==38) {
 			//0=up 1=right 2=down 3=left
-			if ((explorer_dir==0) && ( explorer_x > 0) && (maze[explorer_x-1][explorer_y] != '#')) {
-				maze[explorer_x--][explorer_y] = ' ';
-				maze[explorer_x][explorer_y] = 'E';
+			if ((explorer_dir==0) && ( explorer_y > 0) && (maze[explorer_y-1][explorer_x] != '#')) {
+				maze[explorer_y--][explorer_x] = ' ';
+				maze[explorer_y][explorer_x] = 'E';
 				steps++;
 			}
 
-			if ((explorer_dir == 3) && (explorer_y > 0) && (maze[explorer_x][explorer_y-1] != '#')) {
-				maze[explorer_x][explorer_y--] = ' ';
-				maze[explorer_x][explorer_y] = 'E';
+			if ((explorer_dir == 3) && (explorer_x > 0) && (maze[explorer_y][explorer_x-1] != '#')) {
+				maze[explorer_y][explorer_x--] = ' ';
+				maze[explorer_y][explorer_x] = 'E';
 				steps++;
 			}
 
-			if ((explorer_dir == 1) && (explorer_y < mazeLength_y - 1) && (maze[explorer_x][explorer_y+1] != '#')) {
-				maze[explorer_x][explorer_y++] = ' ';
-				maze[explorer_x][explorer_y] = 'E';
+			if ((explorer_dir == 1) && (explorer_x < mazeLength_x - 1) && (maze[explorer_y][explorer_x+1] != '#')) {
+				maze[explorer_y][explorer_x++] = ' ';
+				maze[explorer_y][explorer_x] = 'E';
 				steps++;
 			}
 
-			if ((explorer_dir==2) && (explorer_x < mazeLength_x - 1) && (maze[explorer_x+1][explorer_y] != '#')) {
-				maze[explorer_x++][explorer_y] = ' ';
-				maze[explorer_x][explorer_y] = 'E';
+			if ((explorer_dir==2) && (explorer_y < mazeLength_y - 1) && (maze[explorer_y+1][explorer_x] != '#')) {
+				maze[explorer_y++][explorer_x] = ' ';
+				maze[explorer_y][explorer_x] = 'E';
 				steps++;
 			}
 
@@ -146,26 +170,6 @@ public class Main extends JPanel implements KeyListener {
 	public void keyReleased(KeyEvent e) { }
 	public void keyTyped(KeyEvent e) { }
 
-
-	public void setBoard()   {
-
-		// Read maze from file and set to maze 2d array
-		try {
-			String file = "maze0.txt";
-
-			BufferedReader input = new BufferedReader(new FileReader(new File(file)));
-			mazeLength_x = (int) Files.lines(Paths.get(file)).count();
-			mazeLength_y = (new BufferedReader(new FileReader(new File(file))).readLine().length());
-
-			maze = new char[mazeLength_x][mazeLength_y];
-
-			for (int i = 0; i < mazeLength_x; i++)
-				maze[i] = input.readLine().toCharArray();
-
-		} catch (IOException io) {
-			System.err.println(io);
-        }
-	}
 
     public static BufferedImage rotate(BufferedImage img, int deg) {
         int imgWidth = img.getWidth();
