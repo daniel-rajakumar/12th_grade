@@ -28,16 +28,16 @@ public class Main extends JPanel implements KeyListener {
 	}
 
 	public void setBoard()   {
+
 		explorer_x = 0; explorer_y = 0; explorer_dir = 0;
 		gamePixelSize = 40;
 		debug = true;
 		steps = 0;
 
-		// Read maze from file and set to maze 2d array
 		try {
 			String file = "maze0.txt";
-
 			BufferedReader input = new BufferedReader(new FileReader(new File(file)));
+
 			mazeLength_y = (int) Files.lines(Paths.get(file)).count();
 			mazeLength_x = (new BufferedReader(new FileReader(new File(file))).readLine().length());
 
@@ -63,43 +63,46 @@ public class Main extends JPanel implements KeyListener {
 
 		// DRAW MAZE
 		g2.setColor(Color.GRAY);
-		for(int c = 0; c < maze[0].length; c++)
-			for(int r = 0; r < maze.length; r++){
+		for(int y = 0; y < maze.length; y++)
+			for(int x = 0; x < maze[0].length; x++){
 
-				int x = c * gamePixelSize + gamePixelSize;
-				int y = r * gamePixelSize + gamePixelSize; 
-				int width = gamePixelSize;
-				int height = gamePixelSize;
+				int img_x = x * gamePixelSize + gamePixelSize;
+				int img_y = y * gamePixelSize + gamePixelSize; 
+				int img_width = gamePixelSize;
+				int img_height = gamePixelSize;
 
-				if (maze[r][c] == 'E'){
+				if (maze[y][x] == 'E'){
 					g2.setColor(Color.GRAY);
-					g2.fillRect(x,y,width,height);
+					g2.fillRect(img_x,img_y,img_width,img_height);
 
 					try {
 						BufferedImage image = ImageIO.read(new File("image.png"));
 
 						switch (explorer_dir){
-							case 0:  g2.drawImage(rotate(image, (90 * 0)), x, y, width, height, null); break;
-							case 1:  g2.drawImage(rotate(image, (90 * 1)), x, y, width, height, null); break;
-							case 2:  g2.drawImage(rotate(image, (90 * 2)), x, y, width, height, null); break;
-							case 3:  g2.drawImage(rotate(image, (90 * 3)), x, y, width, height, null); break;
+							case 0:  g2.drawImage(rotate(image, (90 * 0)), img_x, img_y, img_width, img_height, null); break;
+							case 1:  g2.drawImage(rotate(image, (90 * 1)), img_x, img_y, img_width, img_height, null); break;
+							case 2:  g2.drawImage(rotate(image, (90 * 2)), img_x, img_y, img_width, img_height, null); break;
+							case 3:  g2.drawImage(rotate(image, (90 * 3)), img_x, img_y, img_width, img_height, null); break;
 						}
 						
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
 
-				} else if (maze[r][c] == 'F'){
+				} else if (maze[y][x] == 'F'){
 					//SET FINISH OR GOAL SQUARE
 					g2.setColor(Color.GREEN);
-					g2.fillRect(x, y, width, height);
+					g2.fillRect(img_x, img_y, img_width, img_height);
 					g2.setColor(Color.GRAY);
+					
 
-				} else if(maze[r][c]==' ') // OPEN SQUARE GRAY
-					g2.fillRect(x,y,width,height);
+
+
+				} else if(maze[y][x]==' ') // OPEN SQUARE GRAY
+					g2.fillRect(img_x,img_y,img_width,img_height);
 
 				  else // BLOCKED SQUARE GRAY OUTLINE
-					g2.drawRect(x,y,width,height);
+					g2.drawRect(img_x,img_y,img_width,img_height);
 			}
 
 		if (debug){ // PRINT EXTRA INFO TO HELP DEBUG
