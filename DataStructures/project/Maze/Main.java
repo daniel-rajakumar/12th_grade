@@ -99,7 +99,7 @@ public class Main extends JPanel implements KeyListener {
                     } catch (IOException e) { e.printStackTrace(); }
 
                     try {
-                        BufferedImage image = ImageIO.read(new File("image.png"));
+                        BufferedImage image = ImageIO.read(new File("blob.png"));
 
                         switch (explorer_dir){
                             case 0:  graphics.drawImage(rotate(image, (90 * 0)), img_x, img_y, img_width, img_height, null); break;
