@@ -4,22 +4,20 @@ import java.awt.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 
 public class Main extends JPanel implements KeyListener {
     private JFrame frame;
+    private Graphics2D graphics;
+    private char[][] maze; 
     private int explorer_x, explorer_y, explorer_dir;
     private int gamePixelSize;  		 
-    private boolean debug; 
     private int mazeLength_y, mazeLength_x; 
-    private char[][] maze; 
-    private int steps;
-    private Graphics2D graphics;
     private int drawString_x, drawString_y;
+    private int totalSteps, steps;
+    private boolean debug; 
     private boolean didWin;
-    private int totalSteps;
 
     public Main() {
         setBoard();  //write this method to read board from file
@@ -93,7 +91,12 @@ public class Main extends JPanel implements KeyListener {
 
                 if (maze[y][x] == 'E'){
                     graphics.setColor(Color.GRAY);
-                    graphics.fillRect(img_x, img_y, img_width, img_height);
+                    try {
+                        BufferedImage image = ImageIO.read(new File("grass.png"));
+
+                        graphics.drawImage(image, img_x, img_y, img_width, img_height, null);
+                        
+                    } catch (IOException e) { e.printStackTrace(); }
 
                     try {
                         BufferedImage image = ImageIO.read(new File("image.png"));
@@ -105,21 +108,27 @@ public class Main extends JPanel implements KeyListener {
                             case 3:  graphics.drawImage(rotate(image, (90 * 3)), img_x, img_y, img_width, img_height, null); break;
                         }
                         
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    } catch (IOException e) { e.printStackTrace(); }
 
-                } else if (maze[y][x] == 'F'){
-                    //SET FINISH OR GOAL SQUARE
-                    graphics.setColor(Color.GREEN);
-                    graphics.fillRect(img_x, img_y, img_width, img_height);
-                    graphics.setColor(Color.GRAY);
+                } else if (maze[y][x] == 'F'){ //SET FINISH OR GOAL SQUARE
+                    try {
+                        BufferedImage image_1 = ImageIO.read(new File("grass.png"));
+                        BufferedImage image_2 = ImageIO.read(new File("pizza.png"));
+                        graphics.drawImage(image_1, img_x, img_y, img_width, img_height, null);
+                        graphics.drawImage(image_2, img_x, img_y, img_width, img_height, null);
+                    } catch (IOException e) { e.printStackTrace(); }
 
                 } else if(maze[y][x] == ' '){ // OPEN SQUARE GRAY
-                    graphics.fillRect(img_x, img_y, img_width, img_height);
+                    try {
+                        BufferedImage image = ImageIO.read(new File("grass.png"));
+                        graphics.drawImage(image, img_x, img_y, img_width, img_height, null);
+                    } catch (IOException e) { e.printStackTrace(); }
 
-                 } else { // BLOCKED SQUARE GRAY OUTLINE
-                    graphics.drawRect(img_x, img_y, img_width, img_height);
+                } else { // BLOCKED SQUARE GRAY OUTLINE
+                    try {
+                        BufferedImage image = ImageIO.read(new File("water.png"));
+                        graphics.drawImage(image, img_x, img_y, img_width, img_height, null);
+                    } catch (IOException e) { e.printStackTrace(); }
                 }
             }
         }
