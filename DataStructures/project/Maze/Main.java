@@ -24,7 +24,7 @@ public class Main extends JPanel implements KeyListener {
 	public Main() {
 		setBoard();  //write this method to read board from file
 		frame = new JFrame("A-Mazing Program");
-		frame.setSize(1000, 600);
+		frame.setSize(1100, 600);
 		frame.add(this);
 		frame.addKeyListener(this);
 		frame.setResizable(false);
@@ -53,19 +53,17 @@ public class Main extends JPanel implements KeyListener {
 				maze[i] = input.readLine().toCharArray();
 			}
 
-		} catch (IOException io) {
-			System.err.println(io);
-        }
+		} catch (IOException io) { System.err.println(io); }
 
-
+		placeExplorerInstantiatePosition();
 	}
 
 	public void placeExplorerInstantiatePosition(){
-		for (int i = 0; i < mazeLength_y; i++){
-			for (int j = 0; j < mazeLength_x; j++){
-				if (maze[i][j] == 'E'){
-					explorer_x = j;
-					explorer_y = i;
+		for (int y = 0; y < mazeLength_y; y++){
+			for (int x = 0; x < mazeLength_x; x++){
+				if (maze[y][x] == 'E'){
+					explorer_x = x;
+					explorer_y = y;
 				}
 			}
 		}
