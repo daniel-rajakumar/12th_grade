@@ -39,7 +39,7 @@ public class Main extends JPanel implements KeyListener {
         totalSteps = 0;
 
         try {
-            String file = "maze0.txt";
+            String file = "Levels/level_1.txt";
             BufferedReader input = new BufferedReader(new FileReader(new File(file)));
 
             mazeLength_y = (int) Files.lines(Paths.get(file)).count();
