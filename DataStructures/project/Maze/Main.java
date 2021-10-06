@@ -130,9 +130,9 @@ public class Main extends JPanel implements KeyListener {
 		if(e.getKeyCode() == 38) {
 			switch (explorer_dir) {
 				case 0: keypress_North(); break;
-				case 1: keypress_South(); break;
-				case 2: keypress_West();  break;
-				case 3: keypress_East();  break;
+				case 1: keypress_East(); break;
+				case 2: keypress_South();  break;
+				case 3: keypress_West();  break;
 			}
 		}
 
@@ -154,73 +154,49 @@ public class Main extends JPanel implements KeyListener {
 	}
 
 
-
-
-
-
-
 	public void keypress_North(){
 		if (explorer_y < 1) return;
+		if (maze[explorer_y - 1][explorer_x] == '#') return;
+		if (maze[explorer_y - 1][explorer_x] == 'F') youWinMessage();
 
-
-		if (maze[explorer_y - 1][explorer_x] != '#') {
-			maze[explorer_y--][explorer_x] = ' ';
-			// System.out.printf("in: %s\n", maze[explorer_y][explorer_x]);
-			maze[explorer_y][explorer_x] = 'E';
-			steps++;
-		}
+		moveForward(0, -1);
 	}
 
-
-	public void keypress_East(){
-		if (explorer_x < 1) return;
-		if (maze[explorer_y][explorer_x - 1] == '#') return;
-
-			System.out.printf("in: %s\n", maze[explorer_y][explorer_x]);
-		if (maze[explorer_y][explorer_x] == 'F') {
-		}
-		maze[explorer_y][explorer_x--] = ' ';
-		maze[explorer_y][explorer_x] = 'E';
-		steps++;
-		
-	}
-
-
-	public void keypress_South(){
-		if (explorer_x >= mazeLength_x - 1) return;
-
-		if (maze[explorer_y][explorer_x + 1] != '#') {
-			maze[explorer_y][explorer_x++] = ' ';
-			// System.out.printf("in: %s\n", maze[explorer_y][explorer_x]);
-			maze[explorer_y][explorer_x] = 'E';
-			steps++;
-		}
-	}
 
 	public void keypress_West(){
-		if (explorer_y >= mazeLength_y - 1) return;
+		if (explorer_x < 1) return;
+		if (maze[explorer_y][explorer_x - 1] == '#') return;
+		if (maze[explorer_y][explorer_x - 1] == 'F') youWinMessage();
 
-		if (maze[explorer_y + 1][explorer_x] != '#') {
-			maze[explorer_y++][explorer_x] = ' ';
-			// System.out.printf("in: %s\n", maze[explorer_y][explorer_x]);
-			maze[explorer_y][explorer_x] = 'E';
-			steps++;
-		}
+		moveForward(-1, 0);
 	}
 
+	public void keypress_East(){
+		if (explorer_x >= mazeLength_x - 1) return;
+		if (maze[explorer_y][explorer_x + 1] == '#') return;
+		if (maze[explorer_y][explorer_x + 1] == 'F') youWinMessage();
 
+		moveForward(1, 0);
+	}
 
+	public void keypress_South(){
+		if (explorer_y >= mazeLength_y - 1) return;
+		if (maze[explorer_y + 1][explorer_x] == '#') return; 
+		if (maze[explorer_y + 1][explorer_x] == 'F') youWinMessage();
 
+		moveForward(0, 1);
+	}
 
+	public void moveForward(int x, int y){
+		maze[explorer_y][explorer_x] = ' ';
+		explorer_x += x;
+		explorer_y += y;
+		maze[explorer_y][explorer_x] = 'E';
+		steps++;
+	}
 
-
-
-
-
-
-
-	public String checkForWin(){
-		return null;
+	public void youWinMessage(){
+		System.out.printf("YOU WIN!");
 	}
 
 
