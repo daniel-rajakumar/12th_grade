@@ -22,7 +22,7 @@ public class Main extends JPanel implements KeyListener {
     public Main() {
         setBoard();  //write this method to read board from file
         frame = new JFrame("A-Mazing Program");
-        frame.setSize(1100, 600);
+        frame.setSize(1150, 600);
         frame.add(this);
         frame.addKeyListener(this);
         frame.setResizable(false);
