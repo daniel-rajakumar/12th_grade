@@ -4,6 +4,7 @@ import java.awt.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 
@@ -32,8 +33,7 @@ public class Main extends JPanel implements KeyListener {
 	}
 
 	public void setBoard()   {
-
-		explorer_x = 0; explorer_y = 0; explorer_dir = 0;
+		explorer_dir = 0;
 		gamePixelSize = 40;
 		debug = true;
 		steps = 0;
@@ -56,6 +56,19 @@ public class Main extends JPanel implements KeyListener {
 		} catch (IOException io) {
 			System.err.println(io);
         }
+
+
+	}
+
+	public void placeExplorerInstantiatePosition(){
+		for (int i = 0; i < mazeLength_y; i++){
+			for (int j = 0; j < mazeLength_x; j++){
+				if (maze[i][j] == 'E'){
+					explorer_x = j;
+					explorer_y = i;
+				}
+			}
+		}
 	}
 
 
@@ -117,18 +130,20 @@ public class Main extends JPanel implements KeyListener {
 		drawString_y = mazeLength_y * gamePixelSize + 2 * gamePixelSize;
 
 		if (debug){ // PRINT EXTRA INFO TO HELP DEBUG
-			graphics.setColor(Color.YELLOW);
+			graphics.setColor(Color.RED);
 			graphics.drawString("Steps: " + steps, drawString_x, drawString_y);
 			graphics.setColor(Color.GRAY);
 		}
 
 		if (didWin){
 			graphics.setColor(Color.GREEN);
-			graphics.drawString("TOTAL STEPS: " + (totalSteps+1), drawString_x, drawString_y + 20);
+			graphics.drawString("TOTAL STEPS: " + totalSteps, drawString_x, drawString_y + 20);
+			graphics.setColor(Color.YELLOW);
+			graphics.drawString("CONGRATULATIONS YOU WIN!", drawString_x, drawString_y + 40);
 			graphics.setColor(Color.GRAY);
 
 		} else {
- 			totalSteps = steps;
+ 			totalSteps = steps + 1;
 		}
 
 	}
@@ -201,9 +216,7 @@ public class Main extends JPanel implements KeyListener {
 
 	public void moveForward(int x, int y){
 		maze[explorer_y][explorer_x] = ' ';
-		explorer_x += x;
-		explorer_y += y;
-		maze[explorer_y][explorer_x] = 'E';
+		maze[explorer_y += y][explorer_x += x] = 'E';
 		steps++;
 	}
 
