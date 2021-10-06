@@ -17,7 +17,7 @@ public class Main extends JPanel implements KeyListener {
     private int drawString_x, drawString_y;
     private int totalSteps, steps;
     private boolean debug; 
-    private boolean didWin;
+    private boolean didWin, didLose;
 
     public Main() {
         setBoard();  //write this method to read board from file
@@ -35,7 +35,7 @@ public class Main extends JPanel implements KeyListener {
         gamePixelSize = 40;
         debug = true;
         steps = 0;
-        didWin = false;
+        didWin = false; didLose = false;
         totalSteps = 0;
 
         try {
@@ -118,6 +118,15 @@ public class Main extends JPanel implements KeyListener {
                         graphics.drawImage(image_2, img_x, img_y, img_width, img_height, null);
                     } catch (IOException e) { e.printStackTrace(); }
 
+                } else if(maze[y][x] == 'D'){ // OPEN SQUARE GRAY
+                    try {
+                        BufferedImage image_1 = ImageIO.read(new File("grass.png"));
+                        BufferedImage image_2 = ImageIO.read(new File("dino.png"));
+                        graphics.drawImage(image_1, img_x, img_y, img_width, img_height, null);
+                        graphics.drawImage(image_2, img_x, img_y, img_width, img_height, null);
+                    } catch (IOException e) { e.printStackTrace(); }
+
+
                 } else if(maze[y][x] == ' '){ // OPEN SQUARE GRAY
                     try {
                         BufferedImage image = ImageIO.read(new File("grass.png"));
@@ -142,14 +151,25 @@ public class Main extends JPanel implements KeyListener {
             graphics.setColor(Color.GRAY);
         }
 
+
+        if (didLose){
+            graphics.setColor(Color.GREEN);
+            graphics.drawString("TOTAL STEPS: " + totalSteps, drawString_x, drawString_y + 20);
+            graphics.setColor(Color.YELLOW);
+            graphics.drawString("YOU LOST!!!!!", drawString_x, drawString_y + 40);
+            graphics.setColor(Color.GRAY);
+
+        } 
+
         if (didWin){
             graphics.setColor(Color.GREEN);
             graphics.drawString("TOTAL STEPS: " + totalSteps, drawString_x, drawString_y + 20);
             graphics.setColor(Color.YELLOW);
             graphics.drawString("CONGRATULATIONS YOU WIN!", drawString_x, drawString_y + 40);
             graphics.setColor(Color.GRAY);
-
-        } else {
+        } 
+        
+        if (!didWin && !didLose) {
              totalSteps = steps + 1;
         }
 
@@ -158,8 +178,9 @@ public class Main extends JPanel implements KeyListener {
 
     //0=up 1=right 2=down 3=left
     public void keyPressed(KeyEvent e) {
-        System.out.println(e.getKeyCode());
+        if (didLose || didWin) return;
 
+        System.out.println(e.getKeyCode());
         //forward
         if(e.getKeyCode() == 38) {
             switch (explorer_dir) {
@@ -192,6 +213,7 @@ public class Main extends JPanel implements KeyListener {
         if (explorer_y < 1) return;
         if (maze[explorer_y - 1][explorer_x] == '#') return;
         if (maze[explorer_y - 1][explorer_x] == 'F') didWin = true;
+        if (maze[explorer_y - 1][explorer_x] == 'D') didLose = true;
 
         moveForward(0, -1);
     }
@@ -201,6 +223,7 @@ public class Main extends JPanel implements KeyListener {
         if (explorer_x < 1) return;
         if (maze[explorer_y][explorer_x - 1] == '#') return;
         if (maze[explorer_y][explorer_x - 1] == 'F') didWin = true;
+        if (maze[explorer_y][explorer_x - 1] == 'D') didLose = true;
 
         moveForward(-1, 0);
     }
@@ -209,6 +232,7 @@ public class Main extends JPanel implements KeyListener {
         if (explorer_x >= mazeLength_x - 1) return;
         if (maze[explorer_y][explorer_x + 1] == '#') return;
         if (maze[explorer_y][explorer_x + 1] == 'F')  didWin = true;
+        if (maze[explorer_y][explorer_x + 1] == 'D')  didLose = true;
 
         moveForward(1, 0);
     }
@@ -217,6 +241,7 @@ public class Main extends JPanel implements KeyListener {
         if (explorer_y >= mazeLength_y - 1) return;
         if (maze[explorer_y + 1][explorer_x] == '#') return; 
         if (maze[explorer_y + 1][explorer_x] == 'F') didWin = true;
+        if (maze[explorer_y + 1][explorer_x] == 'D') didLose = true;
 
         moveForward(0, 1);
     }
@@ -233,9 +258,9 @@ public class Main extends JPanel implements KeyListener {
 
 
     public static BufferedImage rotate(BufferedImage img, int deg) {
-        int imgWidth = img.getWidth();
+        int imgWidth =  img.getWidth();
         int imgHeight = img.getHeight();
-        int imgType = img.getType();
+        int imgType =   img.getType();
 
         BufferedImage rotatedImage = new BufferedImage(imgWidth, imgHeight, imgType);
 
