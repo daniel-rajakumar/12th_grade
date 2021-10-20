@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>LinearLayoutPratice</name>
+	<name>My Application</name>
 	<comment>Project LinearLayoutPratice created by Buildship.</comment>
 	<projects>
 	</projects>
@@ -16,7 +16,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1633200365960</id>
+			<id>0</id>
 			<name></name>
 			<type>30</type>
 			<matcher>
