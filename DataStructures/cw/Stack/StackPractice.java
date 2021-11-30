@@ -14,7 +14,7 @@ public class StackPractice {
 
     void one(int num) {
         Stack<Integer> stack = new Stack<>();
-        while (num != 0){
+        while (num != 0) {
             stack.push(num % 2);
             num /= 2;
         }
@@ -48,7 +48,7 @@ public class StackPractice {
             county = new ArrayList<>();
 
             bufferedReader.readLine();
-
+ 
             while ((line = bufferedReader.readLine()) != null) {
                 Municipality municipality = new Municipality(line.split(","));
 
@@ -57,7 +57,6 @@ public class StackPractice {
                         county.add(new Stack<>());
 
                     }
-
                 }
 
                 System.out.println(line.replace(",", " | "));
