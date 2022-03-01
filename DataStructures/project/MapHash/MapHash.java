@@ -20,8 +20,9 @@ import java.util.*;  // No using maps, but you can make a keySet
 public class MapHash<K,V>{
 
     public static final int DEFAULT_MAP_SIZE =  13000000;
-    private int mapSize;
-    private Object[] keys, vals;
+    private final int mapSize;
+    private final Object[] keys;
+    private final Object[] vals;
     private int size;
 
     public MapHash(int capacity){
@@ -30,6 +31,7 @@ public class MapHash<K,V>{
         vals = new Object[mapSize]; // hash index
     }
 
+    // put (K key, V value) returns previous value (or null)
     public V put(K key, V value) {
 
         V previousValue = (V) vals[hash(key)];
@@ -42,15 +44,18 @@ public class MapHash<K,V>{
         return previousValue;
     }
 
+    // get (k key) returns value
     public V get(K key) {
         return (V) vals[hash(key)];
     }
 
+    // containsKey(K key) returns boolean if key is present (not null)
     public boolean containsKey(K key){
         return get(key) != null;
     }
 
 
+    // keySet() returns a Set<K> based on all keys (not null)
     public Set<K> keySet(){
         Set<K> set = new HashSet<>();
 
@@ -61,10 +66,16 @@ public class MapHash<K,V>{
         return set;
     }
 
+    public int size() {
+        return size;
+    }
+
+    // getSize() returns current size of the map
     public int getSize() {
         return size;
     }
 
+    // remove(K key) removes key and value and returns value V
     public V remove(K key) {
         V value = get(key);
 
@@ -85,29 +96,51 @@ public class MapHash<K,V>{
     }
 
     private int hash(K s){ // This is used to keep index values in range
-        return Math.abs(s.hashCode()%mapSize);
+        return Math.abs(s.hashCode() % mapSize);
     }
 
     public static void main(String[] args) {
-        MapHash<String, String> map = new MapHash<>();
-        System.out.println("\nadding...");
-        System.out.println(map.put("apple", "jacks") + " size: " + map.size);
-        System.out.println(map.put("honey", "combs1") + " size: " + map.size);
-        System.out.println(map.put("honey", "combs2") + " size: " + map.size);
+        MapHash<String,String> map = new MapHash<String,String>();
+        map.put("Bachman Turner","Overdrive");
+        map.put("Mad","Hatter");
+        map.put("I love rock and roll","So put another dime in the jukebox baby");
+        System.out.println(map.get("Bachman Turner"));
+        System.out.println(map.get("Mad"));
+        System.out.println(map.get("I love rock and roll"));
 
-        System.out.println("\ncontains...");
-        System.out.println(map.containsKey("apple"));
-        System.out.println(map.containsKey("appe"));
-        System.out.println(map.containsKey("test"));
-        System.out.println(map.containsKey("honey"));
+        System.out.println("\n Key Set:");
+        for (String s: map.keySet())
+            System.out.println(s);
 
-        System.out.println("\nkeyset...");
-        System.out.println(map.keySet());
+        System.out.println("\n\n");
+        MapHash<Character,Integer> frq = new MapHash<Character,Integer>();
+        String s = "This is a sentence, how many of each character does it have?";
+        for (int i = 0; i < s.length(); i++){
+            Character c = s.charAt(i);
+            if (frq.containsKey(c)){
+                frq.put(c,frq.get(c)+1);
+            }
+            else
+                frq.put(c,1);
+        }
 
-        System.out.println("\nremove...");
-        System.out.println(map.remove("apple"));
-        System.out.println(map.keySet() + " size: " + map.size);
+// Print Frequency Table
+        System.out.println("Original Freq Table, size = "+frq.size());
+        for (Character c: frq.keySet())
+            System.out.println(c+" -> "+frq.get(c));
+
+// Remove Spaces and keys that occur exactly 3 times
+        frq.remove(' ');
+
+        for (Character c: frq.keySet())
+            if (frq.get(c) == 3)
+                frq.remove(c);
+
+        System.out.println("\nAdjusted Freq Table, size = "+frq.size());
+        for (Character c: frq.keySet())
+            System.out.println(c+" -> "+frq.get(c));
     }
+
 
 
 }
