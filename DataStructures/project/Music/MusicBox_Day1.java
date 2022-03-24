@@ -1,19 +1,22 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import java.awt.*;
 import java.awt.event.*;
 import java.applet.*;
+import java.lang.reflect.Array;
 import java.net.*;
 
 import java.io.*;
+import java.util.Arrays;
 import javax.sound.sampled.*;
 import javax.swing.*;
 
 
 public class MusicBox_Day1 extends JFrame implements Runnable, ActionListener, AdjustmentListener
 {
-    JToggleButton button[][]=new JToggleButton[37][50];
+    JToggleButton[][] button =new JToggleButton[37][50];
     JScrollPane buttonPane;
     JScrollBar tempoBar;
     JPanel buttonPanel;
@@ -29,8 +32,14 @@ public class MusicBox_Day1 extends JFrame implements Runnable, ActionListener, A
     Thread timing;
 
     JMenuBar jMenuBar;
+    JMenu instrumentMenu;
     JButton stopPlay, clearButton;
-    JPanel menuButtonPanel;
+    JPanel menuButtonPanel, tempPanel;
+    JMenuItem[] instrumentItems;
+    JScrollBar jScrollBar;
+    JScrollBar jScrollVolume;
+    JLabel tempoLabel;
+    JToggleButton jButton;
 
 
     public MusicBox_Day1()
@@ -55,12 +64,57 @@ public class MusicBox_Day1 extends JFrame implements Runnable, ActionListener, A
             }
         }
 
+        tempoBar = new JScrollBar(JScrollBar.HORIZONTAL, 200, 0, 50, 400);
+        tempoBar.addAdjustmentListener(v -> {
+            tempo = tempoBar.getValue();
+            tempoLabel.setText(String.format("Tempo: %6s", tempo));
+        });
+        jScrollVolume = new JScrollBar(JScrollBar.VERTICAL, 200, 0, 50, 400);
+
+
+//        jScrollVolume.addAdjustmentListener(v -> {
+//        });
+
+
+        tempoLabel = new JLabel(String.format("Tempo: %6s", tempo));
+        tempPanel = new JPanel(new BorderLayout());
+        tempPanel.add(tempoLabel, BorderLayout.WEST);
+        tempPanel.add(tempoBar, BorderLayout.CENTER);
+
+        add(tempPanel, BorderLayout.SOUTH);
+        add(jScrollVolume, BorderLayout.WEST);
+
         buttonPane = new JScrollPane(buttonPanel,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         this.add(buttonPane,BorderLayout.CENTER);
 
 
         jMenuBar = new JMenuBar();
         jMenuBar.setLayout(new GridLayout(1, 2));
+        instrumentMenu = new JMenu("Instruments");
+        instrumentItems = new JMenuItem[instrumentNames.length];
+
+        for (int i = 0; i < instrumentNames.length; i++) {
+            String instrumentName = instrumentNames[i];
+            instrumentItems[i] = new JMenuItem(instrumentName);
+//            instrumentItems[i].putClientProperty("instrument", instrumentName);
+            instrumentItems[i].addActionListener(e -> {
+//                System.out.println(e.getSource());
+//                System.out.println(e.getSource() instanceof JMenuItem && Arrays.asList(instrumentItems).contains(e.getSource()));
+//                Arrays.asList(e.getSource())
+//                System.out.println(e.getSource()getSource  JMenuItem);
+//                String name = (String) ((JMenuItem) e.getSource()).getClientProperty("Instrument");
+
+                setTitle(instrumentName);
+                addMusic(instrumentName);
+                reset();
+            });
+
+            instrumentMenu.add(instrumentItems[i]);
+        }
+
+        jMenuBar.add(instrumentMenu);
+
+
         menuButtonPanel = new JPanel();
         menuButtonPanel.setLayout(new GridLayout(1, 2));
 
@@ -69,6 +123,13 @@ public class MusicBox_Day1 extends JFrame implements Runnable, ActionListener, A
         menuButtonPanel.add(stopPlay);
         menuButtonPanel.add(clearButton);
         jMenuBar.add(menuButtonPanel, BorderLayout.EAST);
+        jButton = new JToggleButton("Fast");
+
+        jButton.addActionListener(v -> {
+            tempo += 10;
+            tempoLabel.setText(String.format("Tempo: %6s", tempo));
+        });
+        jMenuBar.add(jButton);
         add(jMenuBar, BorderLayout.NORTH);
 
         stopPlay.addActionListener(e -> {
