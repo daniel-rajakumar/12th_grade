@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
             try {
                 Log.d("", "onCreate: " + "Connecting...");
-                Socket socket = new Socket("192.168.56.1", 8080);
+                Socket socket = new Socket("10.0.0.126", 8080);
                 Log.d("", "onCreate: " + "Connected");
                 button_client.setText(button_client.getText() + "Connected \n");
 
