@@ -1,12 +1,13 @@
 import com.sun.source.tree.BinaryTree;
 
+import java.util.ArrayList;
+import java.util.TreeSet;
+
 public class TreeTest {
 
     TreeTest(){
-
-
         Tree<Integer> tree = new Tree<>();
-
+        ArrayList<Integer> list = new ArrayList<>();
         tree.print();
         tree.add(30);
         tree.print();
@@ -19,12 +20,20 @@ public class TreeTest {
         tree.add(90);
         tree.print();
         tree.rotateRight();
-        System.out.println("In Order:");
-        tree.traverseInOrder();
-        System.out.println("Pre Order:");
-        tree.traversePreOrder();
-        System.out.println("Post Order:");
-        tree.traversePostOrder();
+
+        System.out.println(tree.count());
+        System.out.println(tree.size());
+
+//
+//        System.out.println(tree.toArrayList());
+//        System.out.println("In Order:");
+//        tree.traverseInOrder();
+//
+//        System.out.println("Pre Order:");
+//        tree.traversePreOrder();
+//
+//        System.out.println("Post Order:");
+//        tree.traversePostOrder();
 
     }
 
@@ -36,7 +45,7 @@ public class TreeTest {
             tree.add(test.charAt(i));
 
         System.out.println("\nOriginal:  Pre-order, In-order Array, Root");
-        tree.traversePreOrder(tree.getRoot());
+        tree.traversePreOrder();
         System.out.println();
 
         System.out.println(tree.toArrayList());
@@ -44,7 +53,7 @@ public class TreeTest {
         tree.rotateRight();
 
         System.out.println("\n\nAfter Rotation:  Pre-order, In-order Array, Root");
-        tree.traversePreOrder(tree.getRoot());
+        tree.traversePreOrder();
         System.out.println();
         System.out.println(tree.toArrayList()); //should not change
         System.out.println("Root After => "+tree.getRoot());
