@@ -32,8 +32,8 @@ public class Final {
     }
 
     void one(){
-        IntStream.range(9, random(81, 81))
-                .collect(toList());
+//        IntStream.range(9, random(81, 81))
+//                .collect(toList());
 //        System.out.println("\none: ");
 //        list = new ArrayList<>(List.of(2, 3, 3, 4, 5, 5, 7, 8, 8, 4, 9, 9, 10, 11, 13, 15, 16));
     }

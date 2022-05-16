@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="497a7e71-9f34-4fef-b575-8c349673b939" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Final.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../project/Tree/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../project/Tree/out/production/Tree/Tree$TreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../project/Tree/out/production/Tree/Tree$TreeNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../project/Tree/out/production/Tree/Tree.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../project/Tree/out/production/Tree/Tree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../project/Tree/out/production/Tree/TreeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../project/Tree/out/production/Tree/TreeTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../MobileDev/androidStudio/DodgeGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../MobileDev/androidStudio/DodgeGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../MobileDev/androidStudio/SurfaceView/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../MobileDev/androidStudio/SurfaceView/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="497a7e71-9f34-4fef-b575-8c349673b939" name="Changes" comment="update.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final.java" beforeDir="false" afterPath="$PROJECT_DIR$/Final.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +45,14 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.CreditCard">
+    <configuration name="CreditCard" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CreditCard" />
+      <module name="FinalReview" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Final" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Final" />
       <module name="FinalReview" />
@@ -61,6 +62,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CreditCard" />
         <item itemvalue="Application.Final" />
       </list>
     </recent_temporary>
@@ -75,7 +77,16 @@
       <updated>1652202248099</updated>
       <workItem from="1652202249421" duration="1000" />
       <workItem from="1652202254487" duration="26917000" />
+      <workItem from="1652721556814" duration="237000" />
     </task>
+    <task id="LOCAL-00001" summary="update.">
+      <created>1652721589073</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1652721589073</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -91,5 +102,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update." />
+    <option name="LAST_COMMIT_MESSAGE" value="update." />
   </component>
 </project>
