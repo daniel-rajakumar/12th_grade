@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="497a7e71-9f34-4fef-b575-8c349673b939" name="Changes" comment="update.">
-      <change afterPath="$PROJECT_DIR$/../../../APCSP/.idea/APCSP.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../APCSP/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../APCSP/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../APCSP/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../APCSP/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../APCSP/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../APCSP/hello.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/FinalReview.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/FinalReview/.idea/FinalReview.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/FinalReview/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/FinalReview/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/FinalReview/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/FinalReview/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/FinalReview/Final.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Graph/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Graph/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Graph/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Graph/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Graph/Artist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Graph/Graph.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Final.java" beforeDir="false" afterPath="$PROJECT_DIR$/Final.java" afterDir="false" />
-    </list>
+    <list default="true" id="497a7e71-9f34-4fef-b575-8c349673b939" name="Changes" comment="update." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,7 +75,7 @@
       <workItem from="1652202249421" duration="1000" />
       <workItem from="1652202254487" duration="26917000" />
       <workItem from="1652721556814" duration="237000" />
-      <workItem from="1652901280421" duration="9832000" />
+      <workItem from="1652901280421" duration="10561000" />
     </task>
     <task id="LOCAL-00001" summary="update.">
       <created>1652721589073</created>
@@ -107,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652721589073</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update.">
+      <created>1652914735991</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1652914735991</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
