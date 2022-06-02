@@ -12,15 +12,19 @@ public class Edge {
     public Artist getArtist(){
         return artist;
     }
+
     public Artist getSimilar(){
         return similar;
     }
+
     public int getUniqueID(){
         return uniqueID;
     }
+
     public String toString(){
         return artist + " is similar to " + similar;
     }
+
     public boolean equals(Object obj){
         if(obj == null || this.getClass() != obj.getClass())
             return false;

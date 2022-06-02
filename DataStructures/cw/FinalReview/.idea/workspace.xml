@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="497a7e71-9f34-4fef-b575-8c349673b939" name="Changes" comment="update." />
+    <list default="true" id="497a7e71-9f34-4fef-b575-8c349673b939" name="Changes" comment="update.">
+      <change afterPath="$PROJECT_DIR$/../../../MobileDev/androidStudio/12th_MobileDevFinalProject/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../MobileDev/androidStudio/12th_MobileDevFinalProject/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../MobileDev/androidStudio/12th_MobileDevFinalProject/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../MobileDev/androidStudio/12th_MobileDevFinalProject/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../MobileDev/androidStudio/12th_MobileDevFinalProject/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../MobileDev/androidStudio/Hackathon/app/src/main/res/raw/gameplay_music.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../APCSP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../APCSP/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../APCSP/Rajakumar_day_2_pratice.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../APCSP/Rajakumar_day_2_pratice.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MobileDev/androidStudio/Hackathon/app/src/main/java/com/example/hackathon/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../MobileDev/androidStudio/Hackathon/app/src/main/java/com/example/hackathon/App.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,7 +86,8 @@
       <workItem from="1652202249421" duration="1000" />
       <workItem from="1652202254487" duration="26917000" />
       <workItem from="1652721556814" duration="237000" />
-      <workItem from="1652901280421" duration="10561000" />
+      <workItem from="1652901280421" duration="11906000" />
+      <workItem from="1653404445606" duration="204000" />
     </task>
     <task id="LOCAL-00001" summary="update.">
       <created>1652721589073</created>
@@ -111,5 +123,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update." />
     <option name="LAST_COMMIT_MESSAGE" value="update." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Final.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

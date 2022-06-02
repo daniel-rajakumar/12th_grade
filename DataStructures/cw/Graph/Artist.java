@@ -31,11 +31,19 @@ public class Artist {
         return Objects.hash(name, uniqueID);
     }
 
+//    @Override
+//    public String toString() {
+//        return "Artist{" +
+//                "name='" + name + '\'' +
+//                ", uniqueID=" + uniqueID +
+//                '}';
+//    }
+
+
     @Override
     public String toString() {
         return "Artist{" +
                 "name='" + name + '\'' +
-                ", uniqueID=" + uniqueID +
                 '}';
     }
 }

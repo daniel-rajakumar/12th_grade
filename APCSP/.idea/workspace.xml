@@ -2,12 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d45dcc6a-fcc5-4836-9145-057d5872fbfc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Rajakumar_day_1_practice.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DataStructures/cw/FinalReview/out/production/FinalReview/Final.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MobileDev/androidStudio/Hackathon/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Rajakumar_day_3_pratice.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/Graph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/out/production/Graph/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/out/production/Graph/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/out/production/Graph/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/out/production/Graph/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/out/production/Graph/Artist.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/out/production/Graph/Edge.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/out/production/Graph/Graph.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MobileDev/androidStudio/12th_MobileDevFinalProject/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MobileDev/androidStudio/12th_MobileDevFinalProject/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MobileDev/androidStudio/12th_MobileDevFinalProject/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MobileDev/androidStudio/12th_MobileDevFinalProject/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MobileDev/androidStudio/12th_MobileDevFinalProject/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MobileDev/androidStudio/Hackathon/app/src/main/res/raw/gameplay_music.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rajakumar_day_2_pratice.py" beforeDir="false" afterPath="$PROJECT_DIR$/Rajakumar_day_2_pratice.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DataStructures/cw/FinalReview/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/cw/FinalReview/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataStructures/cw/Graph/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/Artist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataStructures/cw/Graph/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/Edge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MobileDev/androidStudio/Hackathon/app/src/main/java/com/example/hackathon/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MobileDev/androidStudio/Hackathon/app/src/main/java/com/example/hackathon/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,18 +44,25 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="29I9ylMB9qxVa7qfidxSolbG9vQ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -83,7 +105,10 @@
       <option name="presentableId" value="Default" />
       <updated>1652789988275</updated>
       <workItem from="1652789990248" duration="14667000" />
-      <workItem from="1652968387682" duration="9803000" />
+      <workItem from="1652968387682" duration="10406000" />
+      <workItem from="1653305395535" duration="5348000" />
+      <workItem from="1653391876137" duration="599000" />
+      <workItem from="1653478363936" duration="9753000" />
     </task>
     <servers />
   </component>
@@ -101,7 +126,11 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/APCSP$hello.coverage" NAME="Rajakumar_day_1_practice Coverage Results" MODIFIED="1652963593507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/APCSP$Rajakumar_day_1_practice.coverage" NAME="Rajakumar_day_1_practice Coverage Results" MODIFIED="1653479178051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

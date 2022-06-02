@@ -46,50 +46,45 @@ def three():
     turtle.pendown()
     turtle.speed(100)
     turtle.right(45)
-    for i in range(66):
+    for i in range(50):
         for j in range(3):
             turtle.forward(200 - (i * 2))
             turtle.right(180 - 60)
-        turtle.right(15)
+        turtle.right(20)
     turtle.penup()
 
 
 # task 4
 def four():
-    colors = ['blue', 'green', 'red', 'yellow', 'orange']
-
+    gap = 400
+    colors = ['red', 'purple', 'green', 'yellow', 'orange']
     wn.bgcolor('white')
-    turtle.pendown()
-    turtle.speed(100)
-    # center
-    for i in range(19):
-        turtle.color(colors[i % len(colors)])
-        for j in range(4):
-            turtle.forward(100)
-            turtle.left(90)
-        turtle.left(90 / 4)
+    turtle.speed(1000)
 
-    turtle.penup()
-    turtle.left(60)
-    turtle.forward(400)
-    turtle.setheading(90 * 3)
-    turtle.heading()
-    turtle.pendown()
-
-    # sides
-    for k in range(4):
-        for i in range(19):
-            turtle.color(colors[i % 4])
-            for j in range(4):
-                turtle.forward(50)
-                turtle.left(90)
-            turtle.left(90 / 4)
-        turtle.setheading(90 * 3)
-        turtle.heading()
-        turtle.left(k * 90)
-        turtle.penup()
-        turtle.forward(800)
+    def drawRect(size):
         turtle.pendown()
+        turtle.setheading(0)
+        turtle.heading()
+        for k in range(len(colors)):
+            turtle.color(colors[k % len(colors)])
+            for _ in range(4):
+                for __ in range(4):
+                    turtle.forward(size)
+                    turtle.left(-90)
+                turtle.left(-90)
+            turtle.left(90 / len(colors))
+        turtle.penup()
+
+    # center
+    drawRect(100)
+    turtle.forward(gap / 2)
+    turtle.left(90)
+    turtle.forward(gap / 2)
+
+    for i in range(1, 5):
+        drawRect(50)
+        turtle.right(i * 90)
+        turtle.forward(gap)
 
 
 # task 5
@@ -137,7 +132,7 @@ def six():
 # two()
 # three()
 # four()
-five()
-# six()
+# five()
+six()
 
 turtle.mainloop()
