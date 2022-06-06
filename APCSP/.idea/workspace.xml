@@ -1,33 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d45dcc6a-fcc5-4836-9145-057d5872fbfc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Rajakumar_day_3_pratice.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/Graph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/out/production/Graph/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/out/production/Graph/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/out/production/Graph/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/out/production/Graph/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/out/production/Graph/Artist.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/out/production/Graph/Edge.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/out/production/Graph/Graph.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MobileDev/androidStudio/12th_MobileDevFinalProject/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MobileDev/androidStudio/12th_MobileDevFinalProject/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MobileDev/androidStudio/12th_MobileDevFinalProject/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MobileDev/androidStudio/12th_MobileDevFinalProject/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MobileDev/androidStudio/12th_MobileDevFinalProject/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MobileDev/androidStudio/Hackathon/app/src/main/res/raw/gameplay_music.mp3" afterDir="false" />
+    <list default="true" id="d45dcc6a-fcc5-4836-9145-057d5872fbfc" name="Changes" comment="update!">
+      <change afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rajakumar_day_2_pratice.py" beforeDir="false" afterPath="$PROJECT_DIR$/Rajakumar_day_2_pratice.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructures/cw/FinalReview/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/cw/FinalReview/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructures/cw/Graph/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/Artist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DataStructures/cw/Graph/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/Edge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MobileDev/androidStudio/Hackathon/app/src/main/java/com/example/hackathon/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MobileDev/androidStudio/Hackathon/app/src/main/java/com/example/hackathon/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataStructures/cw/Graph/out/production/Graph/Artist.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DataStructures/cw/Graph/out/production/Graph/Artist.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -68,33 +57,25 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Rajakumar_day_1_practice" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Rajakumar_day_1_practice" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="APCSP" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="/usr/bin/python2.7" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Rajakumar_day_1_practice.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="EMULATE_TERMINAL" value="true" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.Rajakumar_day_1_practice" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -109,7 +90,16 @@
       <workItem from="1653305395535" duration="5348000" />
       <workItem from="1653391876137" duration="599000" />
       <workItem from="1653478363936" duration="9753000" />
+      <workItem from="1653702373976" duration="15602000" />
     </task>
+    <task id="LOCAL-00001" summary="update!">
+      <created>1654131098444</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1654131098444</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,9 +118,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="update!" />
+    <option name="LAST_COMMIT_MESSAGE" value="update!" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/APCSP$hello.coverage" NAME="Rajakumar_day_1_practice Coverage Results" MODIFIED="1652963593507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/APCSP$Rajakumar_day_1_practice.coverage" NAME="Rajakumar_day_1_practice Coverage Results" MODIFIED="1653479178051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/APCSP$Rajakumar_day_1_practice.coverage" NAME="Rajakumar_day_1_practice Coverage Results" MODIFIED="1654446020720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
